@@ -40,11 +40,14 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
 
-    respond_to do |format|
-      format.html { redirect_to products_url, notice: "Produto removido com sucesso." }
-    end
-    respond_to do |format|
-      format.html { redirect_to products_url, alert: "Não é possível remover um produto que está sendo utilizado em um pedido." }
+    if @product.errors.any?
+      respond_to do |format|
+        format.html { redirect_to products_url, alert: "#{@product.errors.full_messages.to_sentence}" }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to products_url, notice: "Produto removido com sucesso." }
+      end
     end
   end
 

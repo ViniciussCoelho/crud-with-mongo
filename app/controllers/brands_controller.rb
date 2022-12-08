@@ -40,8 +40,14 @@ class BrandsController < ApplicationController
   def destroy
     @brand.destroy
 
-    respond_to do |format|
-      format.html { redirect_to brands_url, notice: "Marca removida com sucesso." }
+    if @brand.errors.any?
+      respond_to do |format|
+        format.html { redirect_to brands_url, alert: "#{@brand.errors.full_messages.to_sentence}" }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to brands_url, notice: "Marca removida com sucesso." }
+      end
     end
   end
 

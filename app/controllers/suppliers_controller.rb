@@ -40,8 +40,14 @@ class SuppliersController < ApplicationController
   def destroy
     @supplier.destroy
 
-    respond_to do |format|
-      format.html { redirect_to suppliers_url, notice: "Fornecedor removido com sucesso." }
+    if @supplier.errors.any?
+      respond_to do |format|
+        format.html { redirect_to suppliers_url, alert: "#{@supplier.errors.full_messages.to_sentence}" }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to suppliers_url, notice: "Fornecedor removido com sucesso." }
+      end
     end
   end
 

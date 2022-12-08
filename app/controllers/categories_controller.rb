@@ -40,8 +40,14 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
 
-    respond_to do |format|
-      format.html { redirect_to categories_url, notice: "Categoria removida com sucesso." }
+    if @category.errors.any?
+      respond_to do |format|
+        format.html { redirect_to categories_url, alert: "#{@category.errors.full_messages.to_sentence}" }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to categories_url, notice: "Categoria removida com sucesso." }
+      end
     end
   end
 

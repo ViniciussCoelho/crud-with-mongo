@@ -17,4 +17,15 @@ class Product
   validates :price, presence: true
   validates :brand_id, presence: true
   validates :category_id, presence: true
+
+  before_destroy :check_orders
+
+  private
+
+  def check_orders
+    if orders.count > 0
+      errors.add(:base, 'Não é possível excluir um produto que possui pedidos')
+      throw :abort
+    end
+  end
 end

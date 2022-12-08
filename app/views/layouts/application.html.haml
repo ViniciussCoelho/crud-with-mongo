@@ -24,7 +24,7 @@
           %li.nav-item
             %a.nav-link{:href => "/orders"} Pedidos
     - flash.each do |type, msg|
-      .alert.alert-info
+      %div{:class => "alert alert-#{type}"}
         = msg
     = yield
   = render 'ajax_modal_rails/frame'
