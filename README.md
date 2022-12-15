@@ -3,8 +3,8 @@
 
 # TECNOLOGIAS
 
-* Ruby
-* Ruby on Rails
+* Ruby 2.7.6
+* Ruby on Rails 5.2.8
 * MongoDB
 * Boostrap
 * jQuery
