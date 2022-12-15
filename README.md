@@ -31,6 +31,8 @@
     6. `source ~/.bashrc`
     7. Agora o rbenv está instalado, então podemos digitar no terminal: `rbenv install 2.7.6` 
     8. Pronto, já está com o ruby instalado.
+    
+    *Obs: em caso de dúvidas quanto a instação do rbenv, consultar: https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-20-04
   
   * MongoDB:
     - Essa é a documentação que usei para instalar o mongodb no Linux 22.04.1 LTS: https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/
